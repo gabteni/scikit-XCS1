@@ -96,7 +96,7 @@ class DataManagement:
 
     def formatData(self,features,phenotypes):
         formatted = np.insert(features,self.numAttributes,phenotypes,1) #Combines features and phenotypes into one array
-        np.random.shuffle(formatted)
+        #np.random.shuffle(formatted)
         shuffledFeatures = formatted[:,:-1].tolist()
         shuffledLabels = formatted[:,self.numAttributes].tolist()
         for i in range(len(shuffledFeatures)):
