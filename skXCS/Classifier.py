@@ -19,7 +19,7 @@ class Classifier:
         self.timestampGA = xcs.iterationCount
         self.initTimeStamp = xcs.iterationCount
         self.deletionProb = None
-        
+        self.mass=0
         pass
 
     def initializeWithParentClassifier(self,classifier):
@@ -33,6 +33,7 @@ class Classifier:
         self.fitness = classifier.fitness/classifier.numerosity
 
     def match(self,state,xcs):
+        mass=0
         for i in range(len(self.condition)):
             specifiedIndex = self.specifiedAttList[i]
             attributeInfoType = xcs.env.formatData.attributeInfoType[specifiedIndex]
@@ -52,6 +53,8 @@ class Classifier:
                     return False
                 else:
                     return False
+            mass+=(((self.condition[i][0]+self.condition[i][1])/2)-instanceValue)**2
+        self.mass=math.sqrt(mass)
         return True
 
     def initializeWithMatchingStateAndGivenAction(self,setSize,state,action,xcs):
