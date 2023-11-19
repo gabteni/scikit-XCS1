@@ -31,7 +31,7 @@ class Classifier:
         self.prediction = classifier.prediction
         self.predictionError = classifier.predictionError
         self.fitness = classifier.fitness/classifier.numerosity
-
+        self.mass=0
     def match(self,state,xcs):
         mass=0
         for i in range(len(self.condition)):
