@@ -19,10 +19,7 @@ class Classifier:
         self.timestampGA = xcs.iterationCount
         self.initTimeStamp = xcs.iterationCount
         self.deletionProb = None
-        print("specifiedAttList")
-        print(self.specifiedAttList)
-        print("condition")
-        print(self.condition)
+        
         pass
 
     def initializeWithParentClassifier(self,classifier):
@@ -36,11 +33,14 @@ class Classifier:
         self.fitness = classifier.fitness/classifier.numerosity
 
     def match(self,state,xcs):
+        print("specifiedAttList")
+        print(self.specifiedAttList)
+        print("condition")
+        print(self.condition)
         for i in range(len(self.condition)):
             specifiedIndex = self.specifiedAttList[i]
             attributeInfoType = xcs.env.formatData.attributeInfoType[specifiedIndex]
             instanceValue = state[specifiedIndex]
-
             #Continuous
             if attributeInfoType:
                 if instanceValue == None:
