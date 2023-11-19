@@ -33,10 +33,6 @@ class Classifier:
         self.fitness = classifier.fitness/classifier.numerosity
 
     def match(self,state,xcs):
-        print("specifiedAttList")
-        print(self.specifiedAttList)
-        print("condition")
-        print(self.condition)
         for i in range(len(self.condition)):
             specifiedIndex = self.specifiedAttList[i]
             attributeInfoType = xcs.env.formatData.attributeInfoType[specifiedIndex]
