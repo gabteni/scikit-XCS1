@@ -1,6 +1,6 @@
 import random
 import copy
-
+import math
 class Classifier:
     def __init__(self,xcs):
         self.specifiedAttList = []
