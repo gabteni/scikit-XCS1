@@ -421,7 +421,9 @@ class XCS(BaseEstimator,ClassifierMixin):
         set.popSet = popSet
         set.microPopSize = microPopSize
         self.population = set
-
+        for i in range(len(self.population.popSet)):
+            if not hasattr(self.population.popSet[i], 'mass'):
+                self.population.popSet[i].mass = 0
         self.learning_iterations += rawData[0]
         self.iterationCount = rawData[0]
         self.env = rawData[7]
