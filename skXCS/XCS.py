@@ -421,7 +421,7 @@ class XCS(BaseEstimator,ClassifierMixin):
         set.popSet = popSet
         set.microPopSize = microPopSize
         self.population = set
-        cls=Classifier()
+        cls=Classifier(self)
         for i in range(len(self.population.popSet)):
             cls=Classifier()
             if not hasattr(self.population.popSet[i], 'mass'):
