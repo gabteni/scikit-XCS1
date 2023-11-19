@@ -8,7 +8,7 @@ class PredictionArray:
         self.actionList = xcs.env.formatData.phenotypeList
         self.probabilities = {}
         self.hasMatch = len(population.matchSet) != 0
-
+        self.masses=np.empty(len(self.actionList))
         for eachClass in self.actionList:
             self.predictionArray[eachClass] = 0.0
             self.fitnesses[eachClass] = 0.0
@@ -17,7 +17,7 @@ class PredictionArray:
             cl = population.popSet[ref]
             self.predictionArray[cl.action] += cl.prediction*cl.fitness
             self.fitnesses[cl.action] += cl.fitness
-
+            self.masses[cl.action]+=cl.mass
         for eachClass in self.actionList:
             if self.fitnesses[eachClass] != 0:
                 self.predictionArray[eachClass] /= self.fitnesses[eachClass]
