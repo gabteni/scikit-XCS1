@@ -19,7 +19,10 @@ class Classifier:
         self.timestampGA = xcs.iterationCount
         self.initTimeStamp = xcs.iterationCount
         self.deletionProb = None
-
+        print("specifiedAttList")
+        print(specifiedAttList)
+        print("condition")
+        print(condition)
         pass
 
     def initializeWithParentClassifier(self,classifier):
