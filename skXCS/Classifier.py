@@ -20,9 +20,9 @@ class Classifier:
         self.initTimeStamp = xcs.iterationCount
         self.deletionProb = None
         print("specifiedAttList")
-        print(specifiedAttList)
+        print(self.specifiedAttList)
         print("condition")
-        print(condition)
+        print(self.condition)
         pass
 
     def initializeWithParentClassifier(self,classifier):
