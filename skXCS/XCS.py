@@ -428,7 +428,8 @@ class XCS(BaseEstimator,ClassifierMixin):
             cls=Classifier(self)
             if not hasattr(self.population.popSet[i], 'mass'):
                 self.population.popSet[i].mass = 0
-                self.population.popSet[i]=cls.initializeWithParentClassifier(self.population.popSet[i])
+                cls.initializeWithParentClassifier(self.population.popSet[i])
+                self.population.popSet[i]=cls
     def rebootTimer(self):
         file = open(self.reboot_filename, 'rb')
         rawData = pickle.load(file)
