@@ -6,7 +6,7 @@ from skXCS.Timer import Timer
 from skXCS.ClassifierSet import ClassifierSet
 from skXCS.PredictionArray import PredictionArray
 from skXCS.IterationRecord import IterationRecord
-
+from skXCS.Classifier import Classifier
 import random
 import numpy as np
 import csv
@@ -421,9 +421,12 @@ class XCS(BaseEstimator,ClassifierMixin):
         set.popSet = popSet
         set.microPopSize = microPopSize
         self.population = set
+        cls=Classifier()
         for i in range(len(self.population.popSet)):
+            cls=Classifier()
             if not hasattr(self.population.popSet[i], 'mass'):
                 self.population.popSet[i].mass = 0
+                self.population.popSet[i]=cls.initializeWithParentClassifier(self.population.popSet[i])
         self.learning_iterations += rawData[0]
         self.iterationCount = rawData[0]
         self.env = rawData[7]
