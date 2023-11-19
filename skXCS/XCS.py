@@ -420,17 +420,15 @@ class XCS(BaseEstimator,ClassifierMixin):
         set = ClassifierSet()
         set.popSet = popSet
         set.microPopSize = microPopSize
-        self.population = set
-        cls=Classifier(self)
-        for i in range(len(self.population.popSet)):
-            cls=Classifier()
-            if not hasattr(self.population.popSet[i], 'mass'):
-                self.population.popSet[i].mass = 0
-                self.population.popSet[i]=cls.initializeWithParentClassifier(self.population.popSet[i])
+        self.population = set 
         self.learning_iterations += rawData[0]
         self.iterationCount = rawData[0]
         self.env = rawData[7]
-
+        for i in range(len(self.population.popSet)):
+            cls=Classifier(self)
+            if not hasattr(self.population.popSet[i], 'mass'):
+                self.population.popSet[i].mass = 0
+                self.population.popSet[i]=cls.initializeWithParentClassifier(self.population.popSet[i])
     def rebootTimer(self):
         file = open(self.reboot_filename, 'rb')
         rawData = pickle.load(file)
