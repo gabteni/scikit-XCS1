@@ -9,6 +9,7 @@ class PredictionArray:
         self.probabilities = {}
         self.hasMatch = len(population.matchSet) != 0
         self.masses=np.empty(len(self.actionList))
+        self.massCount=np.empty(len(self.actionList))
         for eachClass in self.actionList:
             self.predictionArray[eachClass] = 0.0
             self.fitnesses[eachClass] = 0.0
@@ -18,6 +19,8 @@ class PredictionArray:
             self.predictionArray[cl.action] += cl.prediction*cl.fitness
             self.fitnesses[cl.action] += cl.fitness
             self.masses[cl.action]+=cl.mass
+            self.massCount[cl.action]+=1
+        self.masses=self.masses/self.massCount
         for eachClass in self.actionList:
             if self.fitnesses[eachClass] != 0:
                 self.predictionArray[eachClass] /= self.fitnesses[eachClass]
