@@ -55,6 +55,7 @@ class Classifier:
                     return False
             mass+=(((self.condition[i][0]+self.condition[i][1])/2)-instanceValue)**2
         self.mass=math.sqrt(mass)
+        self.mass/=len(self.condition)
         return True
 
     def initializeWithMatchingStateAndGivenAction(self,setSize,state,action,xcs):
