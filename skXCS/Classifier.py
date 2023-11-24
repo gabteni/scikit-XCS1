@@ -34,7 +34,7 @@ class Classifier:
         self.mass=0
     def match(self,state,xcs):
         mass=0
-        dev=0
+        #dev=0
         for i in range(len(self.condition)):
             specifiedIndex = self.specifiedAttList[i]
             attributeInfoType = xcs.env.formatData.attributeInfoType[specifiedIndex]
@@ -54,10 +54,11 @@ class Classifier:
                     return False
                 else:
                     return False
-            mass+=(((self.condition[i][0]+self.condition[i][1])/2)-instanceValue)**2
-            dev+=self.condition[i][1]-self.condition[i][0]
+            #mass+=(((self.condition[i][0]+self.condition[i][1])/2)-instanceValue)**2
+            mass+=((((self.condition[i][0]+self.condition[i][1])/2)-instanceValue)**2)/((self.condition[i][1]-self.condition[i][0])**2)
+            #dev+=self.condition[i][1]-self.condition[i][0]
         self.mass=math.sqrt(mass)
-        self.mass/=dev
+        #self.mass/=dev
         #self.mass/=len(self.condition)
         return True
 
