@@ -9,7 +9,7 @@ class PredictionArray:
         self.probabilities = {}
         self.hasMatch = len(population.matchSet) != 0
         self.masses=np.empty(len(self.actionList))
-        self.massCount=np.zeros(len(self.actionList))
+        self.massCount=np.ones(len(self.actionList))
         for eachClass in self.actionList:
             self.predictionArray[eachClass] = 0.0
             self.fitnesses[eachClass] = 0.0
