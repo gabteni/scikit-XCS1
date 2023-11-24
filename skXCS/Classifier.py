@@ -54,8 +54,8 @@ class Classifier:
                     return False
                 else:
                     return False
-            #mass+=(((self.condition[i][0]+self.condition[i][1])/2)-instanceValue)**2
-            mass+=((((self.condition[i][0]+self.condition[i][1])/2)-instanceValue)**2)/((self.condition[i][1]-self.condition[i][0])**2)
+            mass+=(((self.condition[i][0]+self.condition[i][1])/2)-instanceValue)**2
+            #mass+=((((self.condition[i][0]+self.condition[i][1])/2)-instanceValue)**2)/((self.condition[i][1]-self.condition[i][0])**2)
             #dev+=self.condition[i][1]-self.condition[i][0]
         self.mass=math.sqrt(mass)
         #self.mass/=dev
