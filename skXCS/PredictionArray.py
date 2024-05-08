@@ -18,7 +18,8 @@ class PredictionArray:
             cl = population.popSet[ref]
             self.predictionArray[cl.action] += cl.prediction*cl.fitness
             self.fitnesses[cl.action] += cl.fitness
-            self.masses[cl.action]+=cl.mass
+            #self.masses[cl.action]+=cl.mass
+            self.masses[cl.action]+=np.exp(-1*cl.mass)*cl.numerosity
             self.massCount[cl.action]+=1
         self.masses=self.masses/self.massCount
         for eachClass in self.actionList:
