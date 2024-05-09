@@ -16,7 +16,7 @@ class PredictionArray:
 
         for ref in population.matchSet:
             cl = population.popSet[ref]
-            self.predictionArray[cl.action] += cl.prediction*cl.fitness
+            self.predictionArray[cl.action] += cl.prediction#*cl.fitness
             self.fitnesses[cl.action] += cl.fitness
             #self.masses[cl.action]+=cl.mass
             self.masses[cl.action]+=np.exp(-1*cl.mass)*cl.numerosity
