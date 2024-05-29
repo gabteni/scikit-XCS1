@@ -24,7 +24,7 @@ class PredictionArray:
         for i in range(len(self.massCount)):
             if self.massCount[i]==0:
                 self.massCount[i]=1
-        self.masses=self.masses/self.massCount
+        #self.masses=self.masses/self.massCount
         for eachClass in self.actionList:
             if self.fitnesses[eachClass] != 0:
                 self.predictionArray[eachClass] /= self.fitnesses[eachClass]
