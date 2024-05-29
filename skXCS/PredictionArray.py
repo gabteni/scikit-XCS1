@@ -19,7 +19,7 @@ class PredictionArray:
             self.predictionArray[cl.action] += cl.prediction*cl.fitness
             self.fitnesses[cl.action] += cl.fitness
             #self.masses[cl.action]+=cl.mass
-            self.masses[cl.action]+=np.exp(-1*cl.mass)*cl.numerosity
+            self.masses[cl.action]+=cl.mass#np.exp(-1*cl.mass)*cl.numerosity
             self.massCount[cl.action]+=1
         for i in range(len(self.massCount)):
             if self.massCount[i]==0:
